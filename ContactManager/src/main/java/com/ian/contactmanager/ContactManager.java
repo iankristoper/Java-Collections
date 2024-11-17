@@ -5,7 +5,7 @@ package com.ian.contactmanager;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.Collections;
+import java.util.Collections; //for sorting the list -> but implements the comparable and override the the int compareTo()
 
 
 
