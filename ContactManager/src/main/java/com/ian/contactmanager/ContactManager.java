@@ -1,6 +1,7 @@
-
 package com.ian.contactmanager;
 
+
+//imported packages or libraries 
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -63,7 +64,42 @@ class ContactData {
 class ContactFunctions {
     
     Scanner scanner = new Scanner(System.in);
+    List<ContactData> contactList = new ArrayList<ContactData>();
     
+    
+    //method to add contact
+    public void addContact() {
+        
+        System.out.print("Enter contact name: ");
+        String contactName = scanner.nextLine();
+        
+        System.out.print("Enter contact number: ");
+        String contactNumber = scanner.nextLine();
+        
+        System.out.print("Enter contact email: ");
+        String contactEmail = scanner.nextLine();
+        
+        ContactData contact = new ContactData(contactName, contactNumber, contactEmail);
+        contactList.add(contact); //add newly initialized contact to the contactList List       
+        System.out.println("Contact added successfully!");
+        
+        //--add method to sort the contact list here--
+        
+    }
+    
+    
+    //method to remove contact
+    public void removeContact() {
+        
+        System.out.print("Enter contact number to delete: ");
+        String removeContact = scanner.nextLine();
+        
+        for(ContactData copy : contactList) {
+            if(copy.getNumber().equalsIgnoreCase(removeContact)) {
+                
+            } 
+        }
+    }
     
     
    
