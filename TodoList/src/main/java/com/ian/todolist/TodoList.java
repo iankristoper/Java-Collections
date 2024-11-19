@@ -1,9 +1,17 @@
 package com.ian.todolist;
 
 
-import java.util.Scanner;
-import java.util.List;
-import java.util.ArrayList;
+
+/*
+    Description:
+    Create a simple To-Do List application that allows a user to add, remove, and view tasks. Use an ArrayList to store the tasks.
+*/
+
+
+
+import java.util.Scanner;   //for inputs 
+import java.util.List;      //list interface -> allowed duplicates, orderred collections
+import java.util.ArrayList; //list implementations -> underlying structure is array
 
 
 

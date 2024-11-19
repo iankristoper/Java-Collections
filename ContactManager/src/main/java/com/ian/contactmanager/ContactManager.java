@@ -1,10 +1,21 @@
 package com.ian.contactmanager;
 
 
+
+
+/*
+Description:
+    Create a Contact Manager application that allows users to store and manage contacts. 
+    Each contact will have a name, phone number, and email. Use an ArrayList<Contact> to store the contacts, where Contact is a custom class.
+*/
+
+
+
+
 //imported packages or libraries 
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.List;        //list interface -> orderred collections, allowed duplicates
+import java.util.ArrayList;   //list implementation
+import java.util.Scanner;     //handling the inputs 
 import java.util.Collections; //for sorting the list -> but implements the comparable and override the the int compareTo()
 
 
