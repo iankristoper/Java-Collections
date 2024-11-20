@@ -33,6 +33,12 @@ public class UniqueWordsCounter {
             wordSet.add(copy);
         }
         
-        System.out.println("");
+        System.out.println("Total number of unique words: " + wordSet.size());
+        
+        for(String copy : wordSet) {
+            System.out.println("Word: " + copy);
+        }
+        
+        scanner.close();
     }
 }
