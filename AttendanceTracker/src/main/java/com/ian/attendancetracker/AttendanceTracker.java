@@ -41,6 +41,36 @@ class AttendanceData {
         this.name = name;
     }
     
+    @Override
+    public String toString() {
+        return "ID: " + getID() + "\n" +
+               "Name: " + getName();
+    }
+    
+    
+    /*
+        NOTE: since the default comparison of the hashcode() and the equals() is the internal memory, it is needed to be overridden in order
+        to make that the user input will be teh data to be compared on.
+
+        use this code: 
+
+        @Override
+        public boolean equals(Object obj) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj == null || getClass() != obj.getClass()) {
+                return false;
+            }
+            AttendanceData that = (AttendanceData) obj;
+            return name.equalsIgnoreCase(that.name);
+        }
+
+        @Override
+        public int hashCode() {
+            return name.toLowerCase().hashCode();
+        }
+    */
 }
 
 
@@ -50,7 +80,7 @@ class AttendanceFunction {
     
     Scanner scanner = new Scanner(System.in);
     Set<AttendanceData> set = new HashSet<AttendanceData>();
-    static int studentID = 0000;
+    static int studentID = 1000;
     
     
     //add student name to the hashset
@@ -62,7 +92,8 @@ class AttendanceFunction {
         
         AttendanceData newData = new AttendanceData(addName, ID);
         set.add(newData);
-        System.out.println("Student Data added successfully!");      
+        System.out.println("Student Data added successfully!");  
+        System.out.println("");
     }
     
     
@@ -72,20 +103,84 @@ class AttendanceFunction {
         System.out.print("Enter student name to check: ");
         String searchName = scanner.nextLine().trim();
         
-        
+        for(AttendanceData copy : set) {
+            
+            if(copy.getName().equalsIgnoreCase(searchName)) {
+                System.out.println(copy);
+                System.out.println("");
+                break;
+            }
+        }
     }
+    
+    
+    //display all list of the student who attended
+    public void displayAllStudents() {
+        
+        System.out.println("List of student who attend: ");
+        System.out.println("");
+        
+        for(AttendanceData copy : set) {
+            System.out.println(copy);
+        }
+    }  
 }
 
-
-        
-        
-        
-        
+         
         
 //main class
 public class AttendanceTracker {
 
     public static void main(String[] args) {
         
+        AttendanceFunction function = new AttendanceFunction();
+        Scanner scanner = new Scanner(System.in);
+        boolean isProgramRunning = true;
+        
+        
+        while(isProgramRunning) {
+            
+            System.out.println("Welcome to my student attendance tracker [CLI based]");
+            System.out.println("[1] Add student");
+            System.out.println("[2] Check student");
+            System.out.println("[3] Display all student");
+            System.out.println("[4] Exit");
+            
+            System.out.print("Please select your choice: ");
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+            
+            switch(choice) {
+                                
+                case 1:
+                    System.out.println("");
+                    function.addStudent();
+                    break;
+                    
+                case 2:
+                    System.out.println("");
+                    function.checkStudent();
+                    break;
+                    
+                case 3:
+                    System.out.println("");
+                    function.displayAllStudents();
+                    break;
+                    
+                case 4:
+                    isProgramRunning = false;
+                    
+                default:
+                    System.out.println("");
+                    System.out.println("Invalid choices!");
+                    break;                                    
+            }
+        }
+        
+        scanner.close();
     }
 }
+
+
+
+
